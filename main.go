@@ -66,9 +66,7 @@ func getSurroundingCellsCount(index int) (count int) {
 			if (x == x_init && y == y_init) || (y < 0 || y > height-1 || x < 0 || x > width-1) {
 				continue
 			}
-
 			count += indexToBitValue(coordToIndex([2]int{y, x}))
-
 		}
 	}
 	return count
@@ -107,13 +105,11 @@ func update() {
 				buffByte += 1 << (7 - j)
 			default:
 			}
-
 		}
 		buff[pos] = buffByte
 	}
 	copy(grid, buff)
 	clear(buff)
-
 }
 
 func main() {
@@ -125,7 +121,7 @@ func main() {
 		}
 		duration = durationTemp
 	}
-
+	
 	for {
 		fmt.Println()
 		render()
