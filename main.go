@@ -123,11 +123,9 @@ func main() {
 	}
 	
 	for {
-		fmt.Println()
 		render()
-		fmt.Println()
+		update()
 		time.Sleep(time.Duration(duration) * time.Millisecond)
 		fmt.Print("\033[H\033[2J") // clear terminal
-		update()
 	}
 }
