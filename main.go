@@ -1,9 +1,5 @@
 package main
 
-// IMPORTANT!
-// all funcitons uses y, x order ( not like x, y in mathematics)
-// all indexation starting from 0
-
 import (
 	"fmt"
 	"log"
@@ -11,6 +7,17 @@ import (
 	"os"
 	"strconv"
 	"time"
+)
+
+var (
+	height        int          = 48
+	width         int          = 96
+	allocation    float64      = 0.3
+	grid          []byte       = makeGrid(height, width, allocation)
+	filled, empty string       = "██", "  "
+	birth         map[int]bool = map[int]bool{3: true}
+	alive         map[int]bool = map[int]bool{2: true, 3: true}
+	duration      int          = 10
 )
 
 func makeGrid(height, width int, allocation float64) []byte {
@@ -32,17 +39,6 @@ func makeGrid(height, width int, allocation float64) []byte {
 	}
 	return grid
 }
-
-var (
-	height        int          = 48
-	width         int          = 96
-	allocation    float64      = 0.3
-	grid          []byte       = makeGrid(height, width, allocation)
-	filled, empty string       = "██", "  "
-	birth         map[int]bool = map[int]bool{3: true}
-	alive         map[int]bool = map[int]bool{2: true, 3: true}
-	duration      int          = 10
-)
 
 func indexToBitValue(index int) int {
 	outB, inB := index/8, index%8
